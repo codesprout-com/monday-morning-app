@@ -1,0 +1,43 @@
+
+Models:
+- User
+  - id
+  - email / password / (other devise)
+- Skill
+  - id
+  - name (string)
+- UserSkill
+  - user_id
+  - skill_id
+- Interest
+  - id
+- UserInterest
+  - user_id
+  - interest_id
+- Room
+  - id
+- RoomUser
+  - user_id
+  - room_id
+
+
+Background tasks:
+- Room assignment job
+
+Flows:
+- User sign up
+- User sign in
+- Skills/interests prompt/profile
+  - Must fill these out to be assigned to their first room
+- In-room chat experience
+  - Action Cable/WebSockets
+
+Premium experience:
+- Multiple rooms?
+- Room administors?
+- Build + promote courses and skills
+- Integrate payments
+
+Admin dashboard:
+- active_admin gem? or alternative?
+- roll our own?
