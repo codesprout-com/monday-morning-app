@@ -1,7 +1,7 @@
 <nav class="navbar" role="navigation" aria-label="main navigation" data-controller="menu">
   <div class="navbar-brand">
     <h2 class="subtitle is-2">
-      <pre>Image or Logo</pre>
+      ☕️ Monday Morning
     </h2>
 
     <a role="button" class="navbar-burger" data-action="click->menu#toggle" aria-label="menu" aria-expanded="false">
@@ -15,9 +15,12 @@
     <div class="navbar-start">
 
       <% if current_user %>
-        <pre>logged in menu links</pre>
+        <span class="navbar-item">
+          Welcome, <%= current_user.email.split("@").first %>
+        </span>
+        <%= link_to "Profile", edit_profile_path, class: "navbar-item" %>
       <% else %>
-        <pre>logged out menu links</pre>
+        <%= link_to "About", "#", class: "navbar-item" %>
       <% end %>
     </div>
 

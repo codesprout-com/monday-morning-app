@@ -1,0 +1,30 @@
+<%= form_with(model: current_user, url: "/profile", method: :patch) do |f| %>
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <%= f.label "Skills", class: "label" %>
+        <%= f.collection_check_boxes :skill_ids, Skill.order(:name), :id, :name do |cbf| %>
+          <%= cbf.check_box class: "checkbox" %>
+          <%= cbf.text %>
+          <br />
+        <% end %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <%= f.label "Interests", class: "label" %>
+        <%= f.collection_check_boxes :interest_ids, Interest.order(:name), :id, :name do |cbf| %>
+          <%= cbf.check_box class: "checkbox" %>
+          <%= cbf.text %>
+          <br />
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+        <%= f.submit "Save Profile", class: "button is-link" %>
+    </div>
+  </div>
+<% end %>
