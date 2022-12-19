@@ -1,0 +1,50 @@
+<div class="subtitle">
+  <%= link_to("<< Back", admin_users_path) %>
+</div>
+
+<div class="card">
+  <div class="card-content">
+    <div class="media">
+
+      <div class="media-content">
+        <p class="title is-4">
+          <%= @user.email %>
+        </p>
+        <p class="subtitle is-6">
+          <% if @user.admin? %>
+            User is an admin
+          <% else %>
+            User is NOT an admin
+          <% end %>
+        </p>
+      </div>
+    </div>
+
+    <div class="content">
+      User was created on <%= @user.created_at %><br />
+      User was last updated on <%= @user.updated_at %><br />
+
+      <div class="subtitle is-4 pt-4">
+        Skills
+      </div>
+      <ul>
+        <% @user.skills.each do |skill| %>
+          <li>
+            <%= skill.name %>
+          </li>
+        <% end %>
+      </ul>
+      
+      <div class="subtitle is-4 pt-4">
+        Interests
+      </div>
+      <ul>
+        <% @user.interests.each do |interest| %>
+          <li>
+            <%= interest.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

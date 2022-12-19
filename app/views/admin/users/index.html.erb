@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><abbr title="ID">ID</abbr></th>
+      <th><abbr title="Created at">Created at</abbr></th>
+      <th><abbr title="Email">Email</abbr></th>
+      <th><abbr title="Actions">Action</abbr></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= user.id %>
+      </td>
+      <td>
+        <%= user.created_at %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <%= link_to("Show", admin_user_path(user.id)) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
