@@ -19,6 +19,16 @@
           Welcome, <%= current_user.email.split("@").first %>
         </span>
         <%= link_to "Profile", edit_profile_path, class: "navbar-item" %>
+
+        <% if current_user.admin? %>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a href="#" class="navbar-link">Admin</a>
+            <div class="navbar-dropdown is-boxed">
+              <%= link_to("Users", admin_users_path, class: "navbar-item") %>
+              <%= link_to("Skills", admin_skills_path, class: "navbar-item") %>
+            </div>
+          </div>
+        <% end %>
       <% else %>
         <%= link_to "About", "#", class: "navbar-item" %>
       <% end %>
