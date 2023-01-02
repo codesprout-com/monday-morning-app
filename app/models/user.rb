@@ -9,4 +9,7 @@ class User < ApplicationRecord
 
   has_many :user_interests
   has_many :interests, through: :user_interests
+
+  has_many :room_users
+  has_many :rooms, through: :room_users
 end
