@@ -25,7 +25,7 @@ class RoomAssigner
         rooms_created_count += 1
       end
 
-      @next_room << user
+      @next_room.users << user
     end
 
     if @room_count != rooms_created_count
@@ -35,9 +35,10 @@ class RoomAssigner
     if @next_room.users.count < MINIMUM_USER_ROOM_COUNT
       random_room_from_the_week = Room.where(opened_at: @next_monday)
                                       .where.not(id: @next_room.id)
+                                      .first
       
       @next_room.users.each do |user|
-        random_room_from_the_week << user
+        random_room_from_the_week.users << user
       end
 
       @next_room.destroy
