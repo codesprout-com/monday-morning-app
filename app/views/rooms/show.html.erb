@@ -1,0 +1,39 @@
+<h2>
+Welcome to Room #<%= @room.id %>
+</h2>
+
+<p class="has-text-size-6">
+This room was opened on <%= @room.opened_at %>
+</p>
+
+<div class="columns">
+  <div class="column box is-one-quarter">
+    <aside class="menu">
+      <p class="menu-label">
+        Room users
+      </p>
+      <ul class="menu-list">
+        <% @room.users.each do |user| %>
+          <li>
+            <a>
+              <%= user.email.split("@").first %><br />
+              <ul>
+                <% user.skills.pluck(:name).each do |skill_name| %>
+                <li>
+                <%= skill_name %>
+                </li>
+                <% end %>
+              </ul>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </aside>
+  </div>
+  <div class="column box">
+  <h1>Messages go here</h1>
+  <form>
+    <input type="text" />
+  </form>
+  </div>
+</div>

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
   devise_for :users
 
+  resources :rooms, only: [ :show ]
+
   resource :profile, only: [ :edit, :update ]
 
   namespace :admin do
