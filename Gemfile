@@ -73,4 +73,4 @@ group :test do
 end
 gem "bulma-rails", "~> 0.9.3"
 gem "devise", "~> 4.8.1"
-gem "sidekiq", "~> 6.4.2"
+gem "sidekiq", "~> 6.5.5"
