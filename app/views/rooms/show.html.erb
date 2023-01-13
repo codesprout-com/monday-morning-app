@@ -35,5 +35,12 @@ This room was opened on <%= @room.opened_at %>
   <form>
     <input type="text" />
   </form>
+  
+  <p>
+  <% @room.messages.order(created_at: :asc).each do |message| %>
+    [ <%= time_ago_in_words(message.created_at) %> ago ] <%= message.body %><br />
+  <% end %>
+  </p>
+
   </div>
 </div>
